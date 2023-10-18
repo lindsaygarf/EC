@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <style type="text/css">
+            #wrapper {
+                display: flex;
+                margin: 10px;
+            }
+
+            #jump {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            body {
+                margin: 15px;
+                background-color: rgb(250, 239, 255);
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                color: navy;
+            }
+        </style>
+        <script>
+            function clicked() {
+                temp1 = text1.value;
+                temp2 = text2.value;
+
+                text1.value = temp2;
+                text2.value = temp1;
+
+                if(jump.textContent == "JUMP >") {
+                    jump.textContent = "< JUMP";
+                } else {
+                    jump.textContent = "JUMP >"
+                }
+
+            }
+        </script> 
+    </head>
+    <body>
+        <h1>Jumping Textboxes</h1>
+        <div id="wrapper"> 
+            <input type="text" id="textbox1"> 
+            <div id="jump"></div>
+            <input type="text" id="textbox2"> 
+        </div>
+        <script>
+            const text1 = document.getElementById("textbox1");
+            const text2 = document.getElementById("textbox2");
+            const jump = document.getElementById("jump");
+
+            jump.textContent = "JUMP >"
+            jump.addEventListener("click", function(){clicked();});
+
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,65 @@
+<html>
+    <head>
+
+        <style type="text/css">
+            body {
+                margin-left: 40px;
+                background-color: rgb(250, 239, 255);
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                color: navy;
+            }
+
+            .checkbox-wrapper {
+                display: inline-block;
+                
+            }
+        </style>
+        <script>
+            function checked(){
+                checkAllLabel = document.querySelector('label[for="checkAll"]');
+                checkboxes = document.querySelectorAll(".checkbox");
+
+                if (checkAllLabel.textContent == "Check All") {
+                    for (i = 0; i < checkboxes.length; i++) {
+                        checkboxes[i].checked = true;
+                    }
+                    checkAllLabel.textContent = "Uncheck All"
+                } 
+                else if (checkAllLabel.textContent == "Uncheck All") {
+                    for (i = 0; i < checkboxes.length; i++) {
+                        checkboxes[i].checked = false;
+                    }
+                    checkAllLabel.textContent = "Check All"
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <h1> Checklist: </h1>
+        <div id="checkbox-wrapper">
+            <input type="checkbox" id="checkAll" class="CheckAll"> 
+            <label for="checkAll">Check All</label>
+        </div>
+            <input type="checkbox" class="checkbox" id="checkbox1"> 
+            <label for="checkbox1">first</label>
+        <div id="checkbox-wrapper">
+            <input type="checkbox" class="checkbox" id="checkbox2"> 
+            <label for="checkbox2">second</label>
+        </div>
+            <input type="checkbox" class="checkbox" id="checkbox3"> 
+            <label for="checkbox3">third</label>
+        <div id="checkbox-wrapper">
+            <input type="checkbox" class="checkbox" id="checkbox4"> 
+            <label for="checkbox3">fourth</label>
+        </div>
+
+        <script>
+            checkAllLabel = document.querySelector('label[for="checkAll"]');
+
+            checkbox = document.getElementById("checkAll");
+            checkbox.addEventListener("click", function() {checked();});
+           
+        </script>
+    </body>
+</html>

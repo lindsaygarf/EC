@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>jQuery Try It - Completed</title>
+	    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	        <style type="text/css">
+
+		        #slides-wrapper{height:550px;}
+
+                body {
+                    text-align: center;
+                    background-color: rgb(250, 239, 255);
+                }
+
+                h1 {
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    color: navy;
+                }
+
+                #start {
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    color: navy;
+                    font-weight: bold;
+                }
+
+                #stop {
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    color: navy;
+                    font-weight: bold;
+                }
+
+	        </style>
+        <script>
+            cakes = ["cake1.jpg", "cake2.jpg","cake3.jpg", "cake4.jpg", "cake5.jpg"];
+            let index = 0;
+
+            $(document).ready(function() {
+                $("#start").click(startSlideShow);
+                $("#stop").click(function() {
+                    $("#slide img").stop();
+                });
+            })
+
+            function startSlideShow() {
+                $("#slide img").fadeOut(2000, goToNext);
+            }
+
+            function goToNext() {
+                index++;
+                if (index == cakes.length) {
+                    index = 0;
+                }
+                $("#slide img").attr("src", "images/"+cakes[index]);
+                $("#slide img").fadeIn(2000, startSlideShow);
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Slideshow of Cakes!</h1>
+        <div id="slides-wrapper">
+            <div id="slide">
+                <img src="images/cake1.jpg" />
+            </div>
+        </div>
+            <input type="button" id="start" value="Start">
+            <input type="button" id="stop" value="Stop">
+    </body>
+</html>
